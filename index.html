@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ランダム選択システム</title>
+  <script src="js/jquery.min.js"></script>
+</head>
+<body>
+  <h1>ランダム選択システム</h1>
+  <div class="summary">
+    <p>1. 選択肢にそれぞれA, B, C, ...と選択肢の数に併せて設定してください。</p>
+    <p>2. 選択肢の数を選択してスタートボタンを押してください。</p>
+    <p>3. 結果がA, Bなどと表示される。</p>
+  </div>
+  <p>選択肢の数を選択してください：
+    <form action="">
+    <select name="number" id="number">
+      <option value="">選択</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+    </select>
+    <input type="button" value="スタート" id="start">
+    </form>
+  </p>
+  <p>結果：<span id="result"></span></p>
+
+
+  <script>
+  var number = 0;
+  var list = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
+  $('#start').on('click', function() {
+    number = $('#number').val();
+    if (number != '') {
+      var resultNum = Math.floor(Math.random() * number);
+      $('#result').text(list[resultNum]);
+    } else {
+      $('#result').text("値をセットしてください。");
+    }
+  });
+  </script>
+</body>
+</html>
